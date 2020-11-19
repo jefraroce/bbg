@@ -1,19 +1,14 @@
-<!-- Data Binding -->
-<input type="text" [(ngModel)]="title" />
-
 <!-- Interpolación de Strings -->
 <h1>{{ title }}</h1>
 
-<!-- Directivas de Control -->
-<div *ngIf="title === 'jeisson'">
-  <h1>Hola {{ title }}</h1>
-</div>
+<!-- Data Binding -->
+<input class="form-control" type="text" [(ngModel)]="nombreAnimal" />
+<button class="btn btn-primary" (click)="agregarAnimal()" >Agregar</button>
 
-<ul>
+<ol>
   <!-- Me permite recorrer un arreglo y rendirezar un código HTML por cada uno de los elementos del arreglo -->
   <li *ngFor="let animal of animales; index as i">
-    {{ animal }} {{ i }}
+    {{ animal }}
+    <button class="btn btn-danger" (click)="removerAnimal(i)">Remover</button>
   </li>
-</ul>
-
-<h2>{{ animales[1] }}</h2>
+</ol>
