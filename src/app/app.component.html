@@ -1,14 +1,5 @@
-<!-- Interpolación de Strings -->
-<h1>{{ title }}</h1>
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">BIT Bookstore</a>
+</nav>
 
-<!-- Data Binding -->
-<input class="form-control" type="text" [(ngModel)]="nombreAnimal" />
-<button class="btn btn-primary" (click)="agregarAnimal()" >Agregar</button>
-
-<ol>
-  <!-- Me permite recorrer un arreglo y rendirezar un código HTML por cada uno de los elementos del arreglo -->
-  <li *ngFor="let animal of animales; index as i">
-    {{ animal }}
-    <button class="btn btn-danger" (click)="removerAnimal(i)">Remover</button>
-  </li>
-</ol>
+<router-outlet></router-outlet>
