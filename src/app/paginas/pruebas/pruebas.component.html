@@ -3,8 +3,13 @@
 
 <!-- Data Binding -->
 <input class="form-control" type="text" [(ngModel)]="nombreAnimal" />
+
+<!-- Event Click -->
 <button class="btn btn-primary" (click)="agregarAnimal()" >Agregar</button>
 
+<!-- Structural Directives https://angular.io/guide/built-in-directives -->
+
+<!-- ngFor -->
 <ol>
   <!-- Me permite recorrer un arreglo y rendirezar un código HTML por cada uno de los elementos del arreglo -->
   <li *ngFor="let animal of animales; index as i">
@@ -12,3 +17,8 @@
     <button class="btn btn-danger" (click)="removerAnimal(i)">Remover</button>
   </li>
 </ol>
+
+<!-- ngIf -->
+<div *ngIf="title === 'jeisson'">
+  <h1>Hola Jeisson</h1>
+</div>
