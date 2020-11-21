@@ -20,4 +20,4 @@ import { PublicidadComponent } from './publicidad/publicidad.component';
     PublicidadComponent
   ]
 })
-export class LayoutModule { }
+export class DisenoModule { }

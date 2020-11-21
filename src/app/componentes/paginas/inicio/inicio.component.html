@@ -1,0 +1,12 @@
+<div class="row">
+  <div *ngFor="let libro of libros" class="col-12 col-md-4">
+    <div class="card" style="width: 18rem;">
+      <img [src]="libro.caratula" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{ libro.nombre }}</h5>
+        <p class="card-text">{{ libro.descripcion }}</p>
+        <a href="#" class="btn btn-primary">Ver Libro</a>
+      </div>
+    </div>
+  </div>
+</div>

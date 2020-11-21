@@ -1,18 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { LayoutModule } from './layout/layout.module';
+import { DisenoModule } from './componentes/diseno/diseno.module';
 
 // Componentes
 import { AppComponent } from './app.component';
-import { LibroComponent } from './componentes/libro/libro.component';
-import { CarritoComponent } from './paginas/carrito/carrito.component';
-import { ComprasComponent } from './paginas/compras/compras.component';
-import { CompraPorIdComponent } from './paginas/compra-por-id/compra-por-id.component';
-import { NoEncontradaComponent } from './paginas/no-encontrada/no-encontrada.component';
-import { LibroPorIdComponent } from './paginas/libro-por-id/libro-por-id.component';
-import { PruebasComponent } from './paginas/pruebas/pruebas.component';
+import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
+import { LibroComponent } from './componentes/utilidades/libro/libro.component';
+import { CarritoComponent } from './componentes/paginas/carrito/carrito.component';
+import { ComprasComponent } from './componentes/paginas/compras/compras.component';
+import { CompraPorIdComponent } from './componentes/paginas/compra-por-id/compra-por-id.component';
+import { NoEncontradaComponent } from './componentes/paginas/no-encontrada/no-encontrada.component';
+import { LibroPorIdComponent } from './componentes/paginas/libro-por-id/libro-por-id.component';
+import { PruebasComponent } from './componentes/paginas/pruebas/pruebas.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { PruebasComponent } from './paginas/pruebas/pruebas.component';
     CompraPorIdComponent,
     NoEncontradaComponent,
     LibroPorIdComponent,
-    PruebasComponent
+    PruebasComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    LayoutModule
+    DisenoModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
