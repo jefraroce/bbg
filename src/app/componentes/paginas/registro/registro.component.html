@@ -1,1 +1,79 @@
-<p>registro works!</p>
+<div class="card mx-auto my-2">
+  <div class="card-body">
+    <h5 class="card-title font-weight-bolder text-primary text-center">Registro</h5>
+    <form class="needs-validation" [formGroup]="formularioDeRegistro" (ngSubmit)="registrarUsuario()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" [class]="'form-control ' + (formularioDeRegistro.controls.nombre.errors ? 'border-danger' : 'border-success')" maxlength="120" required formControlName="nombre" />
+        <div *ngIf="formularioDeRegistro.controls.nombre.errors" class="text-danger">
+          Looks bad!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" class="form-control" maxlength="180" required formControlName="direccion" />
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Looks bad!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Celular</label>
+        <input type="tel" class="form-control" maxlength="10" required formControlName="celular" />
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Looks bad!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h5>Genero</h5>
+
+        <div class="custom-control custom-radio">
+          <input type="radio" id="masculino" name="genero" class="custom-control-input" value="masculino" formControlName="genero">
+          <label class="custom-control-label" for="masculino">Masculino</label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input type="radio" id="femenino" name="genero" class="custom-control-input" value="femenino" formControlName="genero">
+          <label class="custom-control-label" for="femenino">Femenino</label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input type="radio" id="no-decir" name="genero" class="custom-control-input" value="indeterminado" formControlName="genero">
+          <label class="custom-control-label" for="no-decir">No Decir</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" class="form-control" maxlength="180" required formControlName="correoElectronico" />
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Looks bad!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" class="form-control" minlength="6" required formControlName="contrasena" />
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Looks bad!
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+  </div>  
+</div>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { CompraPorIdComponent } from './componentes/paginas/compra-por-id/compra
 import { NoEncontradaComponent } from './componentes/paginas/no-encontrada/no-encontrada.component';
 import { LibroPorIdComponent } from './componentes/paginas/libro-por-id/libro-por-id.component';
 import { PruebasComponent } from './componentes/paginas/pruebas/pruebas.component';
+import { RegistroComponent } from './componentes/paginas/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +27,16 @@ import { PruebasComponent } from './componentes/paginas/pruebas/pruebas.componen
     NoEncontradaComponent,
     LibroPorIdComponent,
     PruebasComponent,
-    InicioComponent
+    InicioComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     DisenoModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
