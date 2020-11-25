@@ -1,11 +1,23 @@
-<div class="row">
-  <div *ngFor="let libro of libros" class="col-12 col-md-4">
-    <div class="card" style="width: 18rem;">
-      <img [src]="libro.caratula" class="card-img-top" alt="">
+<div class="row my-4">
+  <div class="col-12">
+    <form class="d-flex">
+      <button class="btn btn-outline-primary mr-2">Buscar</button>
+      <input type="text" class="form-control w-100" placeholder="¿Que deseas leer hoy?" />
+    </form>
+  </div>
+</div>
+
+<div class="row my-2">
+  <div *ngFor="let libro of libros" class="col-12 col-md-6 col-lg-4 mb-4">
+    <div class="card libro shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">{{ libro.nombre }}</h5>
-        <p class="card-text">{{ libro.descripcion }}</p>
-        <a href="#" class="btn btn-primary">Ver Libro</a>
+        <h4 class="libro-nombre text-dark">{{ libro.nombre }}</h4>
+        <img src="assets/images/caratula-de-pruebas.jpg" class="libro-caratula" alt="">
+        <h5 class="libro-precio text-primary font-weight-bold">{{ libro.valorUnitario | currency }}</h5>
+        <div class="libro-boton">
+          <a class="btn btn-secondary" [routerLink]="['/libros', libro._id]"><span class="material-icons mr-1">visibility</span>Ver</a>
+        </div>
+        <p class="libro-descripcion">{{ libro.descripcion }}</p>
       </div>
     </div>
   </div>
