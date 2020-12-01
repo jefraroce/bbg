@@ -12,7 +12,9 @@
     <div class="card libro shadow-sm">
       <div class="card-body">
         <h4 class="libro-nombre text-dark">{{ libro.nombre }}</h4>
-        <img src="assets/images/caratula-de-pruebas.jpg" class="libro-caratula" alt="">
+        <figure class="libro-caratula">
+          <img [src]="libro.caratula" alt="">
+        </figure>
         <h5 class="libro-precio text-primary font-weight-bold">{{ libro.valorUnitario | currency }}</h5>
         <div class="libro-boton">
           <a class="btn btn-secondary" [routerLink]="['/libros', libro._id]"><span class="material-icons mr-1">visibility</span>Ver</a>

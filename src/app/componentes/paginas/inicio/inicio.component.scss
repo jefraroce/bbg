@@ -13,8 +13,16 @@
 }
 
 .libro .libro-caratula {
-  background-color: gray;
+  background-color: lightgray;
   grid-area: caratula;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  height: 110px;
+  max-width: 100px;
+}
+
+.libro .libro-caratula img {
   object-fit: cover;
   height: 110px;
   max-width: 100px;
