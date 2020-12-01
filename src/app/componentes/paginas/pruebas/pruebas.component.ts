@@ -11,6 +11,12 @@ export class PruebasComponent {
 
   animales = [];
 
+  role = 'administrador';
+  // role = 'contador';
+  // role = 'usuarioRegular';
+  // role = 'vendedor';
+  // esAdministrador = false;
+
   agregarAnimal() {
     if (this.nombreAnimal !== '') {
       this.animales.push(this.nombreAnimal);

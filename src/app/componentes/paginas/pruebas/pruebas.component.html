@@ -26,3 +26,22 @@
 <!-- pipes https://angular.io/guide/pipes -->
 <h1>{{ 'saldo' | uppercase }}</h1>
 <h1>{{ 50000 | currency }}</h1>
+
+<!-- ngSwitch -->
+<div [ngSwitch]="role">
+  <button *ngSwitchCase="'administrador'" class="btn btn-danger">
+    Menu Administrador
+  </button>
+
+  <button *ngSwitchCase="'contador'" class="btn btn-primary">
+    Menu Contador
+  </button>
+
+  <button *ngSwitchCase="'usuarioRegular'" class="btn btn-warning">
+    Menu Usuario Regular
+  </button>
+
+  <button *ngSwitchDefault class="btn btn-success">
+    Menu Vendedor
+  </button>
+</div>
