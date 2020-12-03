@@ -11,50 +11,65 @@ import { LibroPorIdComponent } from './componentes/paginas/libro-por-id/libro-po
 import { NoEncontradaComponent } from './componentes/paginas/no-encontrada/no-encontrada.component';
 import { RegistroComponent } from './componentes/paginas/registro/registro.component';
 
+import { SinPublicidadComponent } from './componentes/diseno/sin-publicidad/sin-publicidad.component';
+import { ConPublicidadComponent } from './componentes/diseno/con-publicidad/con-publicidad.component';
+
 // En este componente tenemos los demos que probamos inicialmente
 import { PruebasComponent } from './componentes/paginas/pruebas/pruebas.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
-    pathMatch: 'full'
+    component: ConPublicidadComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full'
+      },
+      {
+        path: 'inicio',
+        component: InicioComponent
+      },
+      {
+        path: 'registro',
+        component: RegistroComponent
+      },
+      {
+        path: 'inicio-de-sesion',
+        component: InicioDeSesionComponent
+      }
+    ]
   },
   {
-    path: 'inicio',
-    component: InicioComponent
-  },
-  {
-    path: 'registro',
-    component: RegistroComponent
-  },
-  {
-    path: 'inicio-de-sesion',
-    component: InicioDeSesionComponent
-  },
-  {
-    path: 'libros/:id',
-    component: LibroPorIdComponent
-  },
-  {
-    path: 'carrito',
-    component: CarritoComponent
-  },
-  {
-    path: 'compras',
-    component: ComprasComponent
-  },
-  {
-    path: 'compras/:id',
-    component: CompraPorIdComponent
-  },
-  {
-    path: 'pruebas',
-    component: PruebasComponent
-  },
-  {
-    path: '**',
-    component: NoEncontradaComponent
+    path: '',
+    component: SinPublicidadComponent,
+    children: [
+      {
+        path: 'libros/:id',
+        component: LibroPorIdComponent
+      },
+      {
+        path: 'carrito',
+        component: CarritoComponent
+      },
+      {
+        path: 'compras',
+        component: ComprasComponent
+      },
+      {
+        path: 'compras/:id',
+        component: CompraPorIdComponent
+      },
+      {
+        path: 'pruebas',
+        component: PruebasComponent
+      },
+      {
+        path: '**',
+        component: NoEncontradaComponent
+      }
+    ]
   }
 ]
 
