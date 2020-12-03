@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Libro } from 'src/app/interfaces/libro';
+import { LibrosService } from '../../../services/libros.service';
 
 @Component({
   selector: 'app-libro-por-id',
@@ -6,10 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./libro-por-id.component.scss']
 })
 export class LibroPorIdComponent implements OnInit {
+  libro: Libro = {
+    _id: '',
+    caratula: '',
+    nombre: '',
+    descripcion: '',
+    valorUnitario: 0,
+    categorias: []
+  };
 
-  constructor() { }
+  constructor(private servicioLibros: LibrosService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params
+      .subscribe((params) => {
+        this.cargarLibro(params.id)
+      })
   }
 
+  cargarLibro(idLibro: String) {
+    this.servicioLibros.obtenerLibroPorId(idLibro)
+      .subscribe(
+        (libroConsultado) => {
+          this.libro = libroConsultado
+        },
+        (error) => {
+          console.error('Error accesediendo a los parametros ', error)
+        }
+      )
+  }
 }

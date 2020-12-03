@@ -7,12 +7,15 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class LibrosService {
+  BASE_URL = `${environment.API_URL}/libros`
 
   constructor(private http: HttpClient) { }
 
   obtenerLibros() {
-    // return fetch('http://localhost:3000/libros')
-    // return this.http.get<[Libro]>('http://localhost:3000/libros')
-    return this.http.get<Array<Libro>>(`${environment.API_URL}/libros`)
+    return this.http.get<Array<Libro>>(this.BASE_URL)
+  }
+
+  obtenerLibroPorId(idLibro: String) {
+    return this.http.get<Libro>(`${this.BASE_URL}/${idLibro}`)
   }
 }
