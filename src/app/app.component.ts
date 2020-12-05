@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import swal from 'sweetalert';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
-    // swal('Hola Jeisson') :)
-  }
+  constructor() { }
 
 }
