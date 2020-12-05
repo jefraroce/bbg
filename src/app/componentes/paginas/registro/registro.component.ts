@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClienteService } from '../../../services/cliente.service';
+import { ClientesService } from '../../../services/clientes.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
 
   constructor(
       private formBuilder: FormBuilder,
-      private clienteService: ClienteService
+      private clientesService: ClientesService
     ) {
     this.formularioDeRegistro = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -31,7 +31,7 @@ export class RegistroComponent implements OnInit {
     console.log('this.formularioDeRegistro ', this.formularioDeRegistro)
 
     if ( this.formularioDeRegistro.valid ) {
-      this.clienteService.registrarCliente(this.formularioDeRegistro.value)
+      this.clientesService.registrarCliente(this.formularioDeRegistro.value)
         .subscribe(
           (respuesta) => { // Si todo sale bien
             console.log('Exito al registrar el cliente ', respuesta)
