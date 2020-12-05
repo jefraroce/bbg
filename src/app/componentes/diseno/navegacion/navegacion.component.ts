@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ClientesService } from 'src/app/services/clientes.service';
 
 @Component({
   selector: 'app-navegacion',
   templateUrl: './navegacion.component.html',
   styleUrls: ['./navegacion.component.scss']
 })
-export class NavegacionComponent implements OnInit {
+export class NavegacionComponent {
+  token = null;
 
-  constructor() { }
+  constructor(private clientesServicio: ClientesService) {
+    this.clientesServicio.token$.subscribe((token) => {
+      console.log('token', token)
+      this.token = token
+    })
+  }
 
-  ngOnInit(): void {
+  cerrarSesion() {
+    this.clientesServicio.cerrarSesion()
   }
 
 }
