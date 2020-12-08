@@ -16,6 +16,7 @@ import { NoEncontradaComponent } from './componentes/paginas/no-encontrada/no-en
 import { LibroPorIdComponent } from './componentes/paginas/libro-por-id/libro-por-id.component';
 import { PruebasComponent } from './componentes/paginas/pruebas/pruebas.component';
 import { RegistroComponent } from './componentes/paginas/registro/registro.component';
+import { InicioDeSesionComponent } from './componentes/paginas/inicio-de-sesion/inicio-de-sesion.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegistroComponent } from './componentes/paginas/registro/registro.compo
     LibroPorIdComponent,
     PruebasComponent,
     InicioComponent,
-    RegistroComponent
+    RegistroComponent,
+    InicioDeSesionComponent
   ],
   imports: [
     BrowserModule,
