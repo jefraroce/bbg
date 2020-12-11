@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClientesService } from 'src/app/services/clientes.service';
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
 
 @Component({
   selector: 'app-navegacion',
@@ -7,17 +7,19 @@ import { ClientesService } from 'src/app/services/clientes.service';
   styleUrls: ['./navegacion.component.scss']
 })
 export class NavegacionComponent {
-  token = null;
+  // Inicialmente es null porque se asume que el cliente no ha iniciado sesión
+  usuario = null;
 
-  constructor(private clientesServicio: ClientesService) {
-    this.clientesServicio.token$.subscribe((token) => {
-      console.log('token', token)
-      this.token = token
-    })
+  constructor(private autenticacionServicio: AutenticacionService) {
+    this.autenticacionServicio.usuarioObservable.subscribe(
+      (infoUsuario) => {
+        console.log('usuario ', infoUsuario)
+        this.usuario = infoUsuario
+      }
+    )
   }
 
   cerrarSesion() {
-    this.clientesServicio.cerrarSesion()
+    this.autenticacionServicio.cerrarSesion()
   }
-
 }

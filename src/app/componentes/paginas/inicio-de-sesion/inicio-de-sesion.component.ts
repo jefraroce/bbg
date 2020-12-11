@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClientesService } from 'src/app/services/clientes.service';
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
 import swal from 'sweetalert';
-
 
 @Component({
   selector: 'app-inicio-de-sesion',
@@ -12,10 +11,7 @@ import swal from 'sweetalert';
 export class InicioDeSesionComponent {
   formularioInicioDeSesion: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private clientesServicio: ClientesService
-  ) {
+  constructor(private formBuilder: FormBuilder, private autenticacionServicio: AutenticacionService) {
     this.formularioInicioDeSesion = this.formBuilder.group({
       correoElectronico: ['', Validators.required],
       contrasena: ['', Validators.required]
@@ -23,21 +19,13 @@ export class InicioDeSesionComponent {
   }
 
   iniciarSesion() {
-    if ( this.formularioInicioDeSesion.valid ) {
-      // Envio las credenciales a traves del servicio de clientes
-      this.clientesServicio.autenticar( this.formularioInicioDeSesion.value )
-        .subscribe((token: any) => {
-          // Utilizo un metodo del servicio de clientes para almacenar el token recibido
-          this.clientesServicio.guardarToken(token.jwt);
-          swal('¡Exito!', 'Te has autenticado con exito!', 'success');
-        },
-        (error) => {
-          console.error('Error en la autenticación: ', error);
-          swal('Error', error.error.error, 'error');
-        })
-
-    }
-
-    document.querySelector('form').classList.add('was-validated')
+    this.autenticacionServicio.autenticar( this.formularioInicioDeSesion.value )
+      .subscribe((respuesta: any) => {
+        this.autenticacionServicio.guardarToken(respuesta.jwt);
+        swal('Exito', 'Has logrado iniciar sesión', 'success');
+      }, (error) => {
+        console.error('Error autenticando el cliente: ', error);
+        swal('Error', error.error.mensaje, 'error');
+      })
   }
 }
