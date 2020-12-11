@@ -5,12 +5,13 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService {
+export class ClientesService {
+  BASE_URL = `${environment.API_URL}/clientes`
 
   constructor(private http: HttpClient) { }
 
   registrarCliente(datosCliente = {}) {
-    return this.http.post(`${environment.API_URL}/clientes`, datosCliente)
+    return this.http.post(this.BASE_URL, datosCliente)
   }
 
 }

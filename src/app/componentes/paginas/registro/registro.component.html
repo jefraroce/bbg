@@ -1,4 +1,4 @@
-<div class="card mx-auto my-2">
+<div class="card mx-auto my-2 shadow">
   <div class="card-body">
     <h5 class="card-title font-weight-bolder text-primary text-center">Registro</h5>
     <form class="needs-validation" [formGroup]="formularioDeRegistro" (ngSubmit)="registrarUsuario()">
@@ -33,25 +33,6 @@
       </div>
 
       <div class="form-group">
-        <h5>Genero</h5>
-
-        <div class="custom-control custom-radio">
-          <input type="radio" id="masculino" name="genero" class="custom-control-input" value="masculino" formControlName="genero">
-          <label class="custom-control-label" for="masculino">Masculino</label>
-        </div>
-
-        <div class="custom-control custom-radio">
-          <input type="radio" id="femenino" name="genero" class="custom-control-input" value="femenino" formControlName="genero">
-          <label class="custom-control-label" for="femenino">Femenino</label>
-        </div>
-
-        <div class="custom-control custom-radio">
-          <input type="radio" id="no-decir" name="genero" class="custom-control-input" value="indeterminado" formControlName="genero">
-          <label class="custom-control-label" for="no-decir">No Decir</label>
-        </div>
-      </div>
-
-      <div class="form-group">
         <label>Correo Electrónico</label>
         <input type="email" class="form-control" maxlength="180" required formControlName="correoElectronico" />
         <div class="valid-feedback">
@@ -73,7 +54,9 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Registrarse</button>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+      </div>
     </form>
   </div>  
 </div>

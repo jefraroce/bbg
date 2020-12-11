@@ -1,21 +1,22 @@
-<div class="card">
+<div class="card mx-auto my-2 shadow">
   <div class="card-body">
     <h5 class="card-title font-weight-bolder text-primary text-center">Inicio de Sesión</h5>
 
     <form class="needs-validation" [formGroup]="formularioInicioDeSesion" (ngSubmit)="iniciarSesion()">
-
       <div class="form-group">
         <label for="correo-electronico">Correo Electrónico</label>
         <input type="email" id="correo-electronico" class="form-control" formControlName="correoElectronico" required />
       </div>
 
       <div class="form-group">
-        <label for="contrasena">Contrasena</label>
+        <label for="contrasena">Contraseña</label>
         <input type="password" id="contrasena" class="form-control" formControlName="contrasena" required />
       </div>
 
-      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      </div>
     </form>
+
   </div>
 </div>
