@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Cargamos este modulo para que los enlaces dentro del componente de navegación funcionen.
 import { RouterModule } from '@angular/router';
@@ -17,7 +18,8 @@ import { SinPublicidadComponent } from './sin-publicidad/sin-publicidad.componen
     SinPublicidadComponent
   ],
   imports: [
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   exports: [
     NavegacionComponent,

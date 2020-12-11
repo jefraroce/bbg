@@ -8,10 +8,18 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="inicio">Inicio</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li *ngIf="usuario" class="nav-item">
+        <a class="nav-link d-flex align-items-center" style="cursor: pointer;"><span class="material-icons mr-1">account_circle</span> {{ usuario.nombre }}</a>
+      </li>
+      <li *ngIf="usuario" class="nav-item">
+        <button class="btn btn-link nav-link" (click)="cerrarSesion()">
+          Cerrar Sesión
+        </button>
+      </li>
+      <li *ngIf="!usuario" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="inicio-de-sesion">Iniciar Sesión</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li *ngIf="!usuario" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="registro">Registrarse</a>
       </li>
     </ul>
