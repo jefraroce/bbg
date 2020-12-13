@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { AutenticacionService } from './services/autenticacion.service';
-declare let jQuery;
-
 
 @Component({
   selector: 'app-root',
@@ -10,8 +7,6 @@ declare let jQuery;
 })
 export class AppComponent {
 
-  constructor(private autenticacionServicio: AutenticacionService) {
-    const info = this.autenticacionServicio.obtenerInformacionDelCliente()
-  }
+  constructor() { }
 
 }

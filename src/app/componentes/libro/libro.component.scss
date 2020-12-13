@@ -1,0 +1,43 @@
+.libro .card-body {
+  display: grid;
+  grid-template-areas: 'nombre nombre'
+  'caratula precio'
+  'caratula boton'
+  'descripcion descripcion';
+  grid-template-columns: 110px auto;
+  gap: 5px;
+}
+
+.libro .libro-nombre {
+  grid-area: nombre;
+}
+
+.libro .libro-caratula {
+  background-color: lightgray;
+  grid-area: caratula;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  height: 110px;
+  max-width: 100px;
+}
+
+.libro .libro-caratula img {
+  object-fit: cover;
+  height: 110px;
+  max-width: 100px;
+}
+
+.libro .libro-precio {
+  grid-area: precio;
+  text-align: right;
+}
+
+.libro .libro-boton {
+  grid-area: boton;
+}
+
+.libro .libro-descripcion {
+  grid-area: descripcion;
+  text-align: justify;
+}

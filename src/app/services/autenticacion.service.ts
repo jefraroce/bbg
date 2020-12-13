@@ -8,16 +8,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AutenticacionService {
   private TOKEN_NAME = 'bitToken';
-  BASE_URL = `${environment.API_URL}/clientes/autenticacion`;
+  private BASE_URL = `${environment.API_URL}/clientes/autenticacion`;
 
+  // Variable reactiva que me permitirá compartir su contenido con quienes se suscriban a los cambios
   private usuario = new BehaviorSubject(null);
   usuarioObservable = this.usuario.asObservable();
 
   constructor(private http: HttpClient) {
-    const token = localStorage.getItem(this.TOKEN_NAME)
-    if (token) {
-      this.usuario.next(this.obtenerInformacionDelCliente());
-    }
+    this.usuario.next(this.obtenerInformacionDelCliente());
   }
 
   autenticar(credenciales = {}) {
@@ -36,15 +34,19 @@ export class AutenticacionService {
 
   obtenerInformacionDelCliente() {
     // Consulto el Token
-    const token = localStorage.getItem(this.TOKEN_NAME)
+    const token = localStorage.getItem(this.TOKEN_NAME);
 
-    // Decodificarlo
-    const base64Url = token.split('.')[1]; // Acá extraemos solo la parte del medio del token
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    const infoDelCliente = decodeURIComponent(atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+    if (token) {
+      // Decodificarlo
+      const base64Url = token.split('.')[1]; // Acá extraemos solo la parte del medio del token
+      const base64 = base64Url.replace('-', '+').replace('_', '/');
+      const infoDelCliente = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
 
-    return JSON.parse(infoDelCliente);
+      return JSON.parse(infoDelCliente);
+    }
+
+    return null;
   }
 }

@@ -9,6 +9,9 @@ import { LibrosService } from '../../../services/libros.service';
   styleUrls: ['./libro-por-id.component.scss']
 })
 export class LibroPorIdComponent implements OnInit {
+  cantidad: number = 1;
+  total: number = 0;
+
   libro: Libro = {
     _id: '',
     caratula: '',
@@ -24,18 +27,23 @@ export class LibroPorIdComponent implements OnInit {
     this.activatedRoute.params
       .subscribe((params) => {
         this.cargarLibro(params.id)
-      })
+      });
+  }
+
+  calcularTotal() {
+    this.total = this.cantidad * this.libro.valorUnitario;
   }
 
   cargarLibro(idLibro: String) {
     this.servicioLibros.obtenerLibroPorId(idLibro)
       .subscribe(
         (libroConsultado) => {
-          this.libro = libroConsultado
+          this.libro = libroConsultado;
+          this.calcularTotal();
         },
         (error) => {
-          console.error('Error accesediendo a los parametros ', error)
+          console.error('Error accesediendo a los parametros ', error);
         }
-      )
+      );
   }
 }

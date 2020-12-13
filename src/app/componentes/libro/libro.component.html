@@ -1,0 +1,13 @@
+<div class="card libro shadow-sm">
+  <div class="card-body">
+    <h4 class="libro-nombre text-dark">{{ infoLibro.nombre }}</h4>
+    <figure class="libro-caratula">
+      <img [src]="infoLibro.caratula" alt="">
+    </figure>
+    <h5 class="libro-precio text-primary font-weight-bold">{{ infoLibro.valorUnitario | currency }}</h5>
+    <div class="libro-boton">
+      <a class="btn btn-secondary" [routerLink]="['/libros', infoLibro._id]"><span class="material-icons mr-1">visibility</span>Ver</a>
+    </div>
+    <p class="libro-descripcion">{{ infoLibro.descripcion }}</p>
+  </div>
+</div>

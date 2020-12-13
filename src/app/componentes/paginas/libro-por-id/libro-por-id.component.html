@@ -1,4 +1,25 @@
-<div>
-  <h1>{{ libro.nombre }}</h1>
-  <img [src]="libro.caratula" alt="" class="img-fluid" />
+<div class="row">
+  <div class="col-12">
+    <h1>{{ libro.nombre }}</h1>
+  </div>
+  <div class="col-12 col-md-6">
+    <img [src]="libro.caratula" alt="" class="img-fluid" />
+  </div>
+  <div class="col-12 col-md-6 d-flex flex-column justify-content-between">
+    <p>{{ libro.descripcion }}</p>
+    <div>
+      <h6 class="text-secondary">Valor Unitario {{ libro.valorUnitario | currency }}</h6>
+      <div class="form-group row">
+        <label for="cantidad" class="col-12 col-md-3 col-form-label">Cantidad</label>
+        <div class="col-12 col-md-9">
+          <input type="number" min="1" class="form-control" string-to-number id="cantidad" [(ngModel)]="cantidad" (change)="calcularTotal()" />
+        </div>
+      </div>
+      <hr/>
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="my-0">Total {{ total | currency }}</h3>
+        <button class="btn btn-primary"><span class="material-icons mr-1">add_shopping_cart</span>Agregar al Carrito</button>
+      </div>
+    </div>
+  </div>
 </div>

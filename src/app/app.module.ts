@@ -8,7 +8,7 @@ import { DisenoModule } from './componentes/diseno/diseno.module';
 // Componentes
 import { AppComponent } from './app.component';
 import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
-import { LibroComponent } from './componentes/utilidades/libro/libro.component';
+import { LibroComponent } from './componentes/libro/libro.component';
 import { CarritoComponent } from './componentes/paginas/carrito/carrito.component';
 import { ComprasComponent } from './componentes/paginas/compras/compras.component';
 import { CompraPorIdComponent } from './componentes/paginas/compra-por-id/compra-por-id.component';

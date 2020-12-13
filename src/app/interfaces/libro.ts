@@ -3,6 +3,6 @@ export interface Libro {
   caratula: String;
   nombre: String;
   descripcion: String;
-  valorUnitario: Number;
+  valorUnitario: number;
   categorias: String[];
 }
