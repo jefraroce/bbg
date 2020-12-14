@@ -8,6 +8,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/inicio">Inicio</a>
       </li>
+      <li *ngIf="usuario" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/carrito"><span class="material-icons">shopping_cart</span></a>
+      </li>
       <li *ngIf="usuario" class="nav-item">
         <a class="nav-link d-flex align-items-center" style="cursor: pointer;"><span class="material-icons mr-1">account_circle</span> {{ usuario.nombre }}</a>
       </li>
