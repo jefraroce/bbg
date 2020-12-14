@@ -1,8 +1,12 @@
 <div class="row my-4">
   <div class="col-12">
-    <form class="d-flex">
-      <button class="btn btn-outline-primary mr-2">Buscar</button>
-      <input type="text" class="form-control w-100" placeholder="¿Que deseas leer hoy?" />
+    <form class="d-flex" (ngSubmit)="buscar()">
+      <button type="submit" class="btn btn-outline-primary mr-2">
+        <span *ngIf="estaCargando" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!estaCargando" class="material-icons mr-1">search</span>
+        Buscar
+      </button>
+      <input type="text" class="form-control w-100" placeholder="¿Que deseas leer hoy?" name="busqueda" [(ngModel)]="busqueda" />
     </form>
   </div>
 </div>

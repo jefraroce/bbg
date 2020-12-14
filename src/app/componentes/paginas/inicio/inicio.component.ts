@@ -10,6 +10,7 @@ import swal from 'sweetalert';
 })
 export class InicioComponent implements OnInit {
   estaCargando: Boolean = true;
+  busqueda: String = '';
   libros: Array<Libro> = [];
 
   constructor(private servicioLibros: LibrosService) { }
@@ -18,9 +19,15 @@ export class InicioComponent implements OnInit {
     this.cargarLibros()
   }
 
-  cargarLibros() {
+  buscar() {
+    this.cargarLibros(this.busqueda)
+  }
+
+  cargarLibros(busqueda: String = '') {
     this.estaCargando = true;
-    this.servicioLibros.obtenerLibros()
+    const filtros = busqueda.length > 0 ? { nombre: busqueda } : {};
+
+    this.servicioLibros.obtenerLibros(filtros)
       .subscribe(
         (librosConsultados) => {
           this.libros = librosConsultados

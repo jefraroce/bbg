@@ -11,8 +11,8 @@ export class LibrosService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerLibros() {
-    return this.http.get<Array<Libro>>(this.BASE_URL)
+  obtenerLibros(parametros: {}) {
+    return this.http.get<Array<Libro>>(this.BASE_URL, { params: parametros })
   }
 
   obtenerLibroPorId(idLibro: String) {
