@@ -16,11 +16,11 @@ export class InicioComponent implements OnInit {
   constructor(private servicioLibros: LibrosService) { }
 
   ngOnInit(): void {
-    this.cargarLibros()
+    this.cargarLibros();
   }
 
   buscar() {
-    this.cargarLibros(this.busqueda)
+    this.cargarLibros(this.busqueda);
   }
 
   cargarLibros(busqueda: String = '') {
@@ -30,12 +30,12 @@ export class InicioComponent implements OnInit {
     this.servicioLibros.obtenerLibros(filtros)
       .subscribe(
         (librosConsultados) => {
-          this.libros = librosConsultados
+          this.libros = librosConsultados;
           this.estaCargando = false;
         },
         (error) => {
           this.estaCargando = false;
-          console.error('Error trayendo los libros: ', error)
+          console.error('Error trayendo los libros: ', error);
           swal('Error consultando los libros', error.error.mensaje, 'error');
         }
       )
